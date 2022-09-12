@@ -1,0 +1,56 @@
+﻿@model ThinkfulApp.Models.ChartModel
+
+<style>
+    .form-group {
+        display: table;
+    }
+</style>
+<h4>Review and Update your Progress</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ProcessEdit">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" value="@ViewBag.Chart.Id" />
+                <span asp-validation-for="Id"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="NumOfGoals" value="@ViewBag.Chart.NumOfGoals" />
+                <span asp-validation-for="NumOfGoals"></span>
+            </div>
+            <div id="Main">
+            @{
+                for (int ind = 0; ind < ViewBag.Chart.NumOfGoals; ind++)
+                {
+                                        <div class="form-group" id="@ind">
+                                            <div class="d-table-cell" style="vertical-align: bottom">
+                                                <label asp-for="LabelList[ind]" class="control-label">Goal @(ind + 1)</label>
+                                                <input asp-for="LabelList[ind]" class="form-control" placeholder="@ViewBag.Chart.LabelList[ind]" value="@ViewBag.Chart.LabelList[ind]" />
+                                            </div>
+                                            <div class="d-table-cell" style="vertical-align: bottom">
+                                                <input asp-for="GoalList[ind]" class="form-control" placeholder="@ViewBag.Chart.GoalList[ind]" value="@ViewBag.Chart.GoalList[ind]" />
+                                            </div>
+                                        </div>
+                                        <br />
+                }
+            }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <br />
+                <input type="reset" value="Reset" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to your ThinkFulChart</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

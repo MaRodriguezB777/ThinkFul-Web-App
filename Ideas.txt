@@ -1,0 +1,5 @@
+﻿Ideas:
+
+- To keep track of user charts throughout time:
+	- Have a table with a JSON element which has keys be dates and values be whole charts (basically the same JSON format as in dbo.Charts). 
+	- On the site, the User would have a button somewhere which would let them submit their current chart to be the one for the day. This would create a new property in the DayCharts Table (Name Work-in-Progress) and then lock out the user from changing their chart; either this or the user can continue to change their chart and update the DayCharts Table as many times as they want until the day is over. This would each time replace whatever chart was already in the DayCharts Table

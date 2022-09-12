@@ -1,0 +1,13 @@
+﻿@model ThinkfulApp.Models.ChartModel
+
+@if (ViewBag.Status == "Success")
+{
+    <p>You have <span style="color: #00FF00">removed</span> this Goal <span style="color: #FF0F00">(@ViewBag.GoalToBeDeleted)</span> from your <span style="color: #F040A0">ThinkFul</span>Chart.</p>
+} else {
+    int ind = ViewBag.ind;
+    <div class="form-group" id="ind">
+        <div class="d-table-cell" style="vertical-align: bottom">
+            <button type="submit" name="Delete_@ind" value="@ind, @ViewBag.Chart.LabelList[ind]" class="btn btn-danger delete-button">Remove your @ViewBag.Chart.LabelList[ind] Goal</button>
+        </div>
+    </div>
+}

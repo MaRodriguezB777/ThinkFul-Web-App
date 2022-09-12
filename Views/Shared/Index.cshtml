@@ -1,0 +1,92 @@
+﻿<!--
+    Launched by:
+    [EditChart] (Controller)
+    [ChartHome] (Layout) -> [Index] (Controller)
+    [ProcessCreate] (Controller)
+    [ProcessLogin] (Controller)
+-->
+@{
+    ViewData["Title"] = "Thinkful Chart (LoggedIn)";
+}
+
+<style>
+    .chart-container {
+        position: relative;
+        margin: auto;
+        height: 75vh;
+        width: 75vw;
+    }
+</style>
+
+<div class="text-center">
+    <h2 class="display-3">You are now Logged in.</h2>
+</div>
+
+<div class="chart-container">
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript">
+
+        //Remember to take out once working
+        window.onerror = function (e) {
+            alert(e);
+        }
+
+        const NumGoals = @ViewBag.Chart.GoalList.Count;
+
+        const data = {
+            labels: [],
+            datasets: [{
+                label: ('@ViewBag.User.Name' + "'s Mindfulness Chart"),
+                data: [],
+                fill: true,
+                backgroundColor: 'rgba(255, 160, 100, 0.2)',
+                borderColor: 'rgb(255, 160, 100)',
+                pointBackgroundColor: 'rgb(255, 160, 100)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 160, 100)'
+            }]
+        };
+
+        var LabelList = @Json.Serialize(ViewBag.Chart.LabelList);
+        var GoalList = @Json.Serialize(ViewBag.Chart.GoalList);
+        for (var i = 0; i < NumGoals; i++) {
+            console.log("i = " + i);
+            data.labels[i] = LabelList[i];
+            data.datasets[0].data[i] = GoalList[i];
+        }
+
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                maintainAspectRatio: false,
+                line: {
+                    borderWidth: 3
+                },
+                scales: {
+                    r: {
+                        suggestedMin: 1,
+                        suggestedMax: 100,
+
+                        ticks: {
+                            display: false,
+                            stepSize: 1,
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 16
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+</div>

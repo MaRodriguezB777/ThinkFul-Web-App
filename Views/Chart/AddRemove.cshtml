@@ -1,0 +1,56 @@
+﻿@model ThinkfulApp.Models.ChartModel
+
+<style>
+    .form-group {
+        display: table;
+    }
+</style>
+<h4>Remove Goals to <span style="color: limegreen">emphasize</span> your current goals</h4>
+<h4> or add in new ones to <span style="color: burlywood"><em>shift</em> your priority</span></h4>
+<div class="delete-button-div">
+    @{
+        for (int ind = 0; ind < ViewBag.Chart.NumOfGoals - 1; ind++)
+        {
+                        <div id="@ind">
+                            <div class="d-table-cell">
+                                <button type="submit" name="Delete_@ind" value="@ind, @ViewBag.Chart.LabelList[ind]" class="btn btn-outline-danger delete-button">Click to deList your "@ViewBag.Chart.LabelList[ind]" Goal</button>
+                            </div>
+                </div>
+        }
+        int lastInd = ViewBag.Chart.NumOfGoals - 1;
+        <div id="@lastInd">
+            <div class="d-table-cell">
+                @if(ViewBag.AddSuccessMessage != null) {
+                    <button type="submit" name="Delete_@lastInd" value="@lastInd, @ViewBag.Chart.LabelList[lastInd]" class="btn btn-outline-success delete-button">Click to deList your "@ViewBag.Chart.LabelList[lastInd]" Goal</button>
+                } else {
+                    <button type="submit" name="Delete_@lastInd" value="@lastInd, @ViewBag.Chart.LabelList[lastInd]" class="btn btn-outline-danger delete-button">Click to deList your "@ViewBag.Chart.LabelList[lastInd]" Goal</button>
+                }
+            </div>
+            <br />
+            <br />
+        </div>
+    }
+</div>
+<div id="Create">
+        @if(ViewBag.AddSuccessMessage != null)
+        {
+            <h6 class="alert-success">@ViewBag.AddSuccessMessage</h6>
+        } else if (ViewBag.AddFailureMessage != null) {
+            <h6 class="alert-danger">@ViewBag.AddFailureMessage</h6>
+        }
+    <button type="submit" name="Add" value="@ViewBag.Chart.NumOfGoals" class="btn btn-outline-primary add-button">Add a new Goal</button>
+</div>
+
+<br />
+<br />
+
+<div style="position:relative; bottom: 0">
+    <a asp-action="EditChart" class="btn btn-secondary">Clarify Current Goals Instead</a>
+    <a asp-action="Index" class="btn btn-outline-info">See your Updated ThinkFulChart</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
