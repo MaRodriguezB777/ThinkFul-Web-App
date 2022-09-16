@@ -6,7 +6,12 @@ namespace ThinkfulApp.Services
 {
     public class ChartDataDAO
     {
-        static readonly string connectionString = @"Data Source=thinkful-azure-server.database.windows.net;Initial Catalog=ThinkFulDB;User ID=CloudSAe0a7b040;Password=Manuel12;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string connectionString = "";
+
+        public static void setConnectionString(string str)
+        {
+            connectionString = str;
+        }
 
         // WORKING
         public static ChartModel? GetChartFromId(int id)

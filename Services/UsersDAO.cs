@@ -5,14 +5,19 @@ namespace ThinkfulApp.Services
 {
     public class UsersDAO
     {
-        static readonly String connectionStringOriginal = @"Data Source=thinkful-azure-server.database.windows.net;Initial Catalog=ThinkFulDB;User ID=CloudSAe0a7b040;Password=Manuel12;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string connectionString = "";
+
+        public static void setConnectionString(string str)
+        {
+            connectionString = str;
+        }
 
         static public UserModel GetUserById(int id)
         {
             UserModel foundUser = null;
             string commandString = "SELECT * from dbo.UserInfo WHERE Id = @Id";
 
-            using (SqlConnection connection = new SqlConnection(connectionStringOriginal))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(commandString, connection);
                 command.Parameters.AddWithValue("@Id", id);
@@ -46,7 +51,7 @@ namespace ThinkfulApp.Services
 
             string commandString = "SELECT * FROM dbo.UserInfo WHERE Username = @Username AND Password = @Password";
 
-            using (SqlConnection connection = new SqlConnection(connectionStringOriginal))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(commandString, connection);
                 command.Parameters.AddWithValue("@Username", user.Username);
@@ -90,7 +95,7 @@ namespace ThinkfulApp.Services
                 "RETURN\n" +
                 "END CATCH\n";
 
-            using (SqlConnection connection = new SqlConnection(connectionStringOriginal))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(commandString, connection);
                 command.Parameters.AddWithValue("@Username", user.Username);
@@ -121,7 +126,7 @@ namespace ThinkfulApp.Services
         {
             int nextId = -1;
             string commandString = "SELECT MAX(Id) FROM dbo.UserInfo";
-            using (SqlConnection connection = new SqlConnection(connectionStringOriginal))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(commandString, connection);
 
