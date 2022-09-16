@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.chart-container {
+    height: 95vh;
+    padding-bottom: 5vh;
+}
+
+a {
+    color: #2fcb47;
+}

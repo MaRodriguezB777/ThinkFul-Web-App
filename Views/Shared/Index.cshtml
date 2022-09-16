@@ -9,18 +9,12 @@
     ViewData["Title"] = "Thinkful Chart (LoggedIn)";
 }
 
-<style>
-    .chart-container {
-        position: relative;
-        margin: auto;
-        height: 75vh;
-        width: 75vw;
-    }
-</style>
-
-<div class="text-center">
-    <h2 class="display-3">You are now Logged in.</h2>
-</div>
+@if (ViewBag.LoggedInSuccess != null)
+{
+    <div class="text-center">
+        <h2 class="display-3">@ViewBag.LoggedInSuccess</h2>
+    </div>
+}
 
 <div class="chart-container">
     <canvas id="myChart"></canvas>
@@ -75,8 +69,12 @@
                             stepSize: 1,
                         },
                         pointLabels: {
-                            font: {
-                                size: 16
+                            font: function (context) {
+                                var width = context.chart.width;
+                                var size = Math.round(width / 48);
+                                return {
+                                    size: size,
+                                };
                             }
                         }
                     }

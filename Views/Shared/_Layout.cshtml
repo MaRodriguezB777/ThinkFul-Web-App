@@ -23,27 +23,32 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Chart" asp-action="Index">Chart Home</a>
                         </li>
                         @{
-                            if(!TempData.ContainsKey("UserId")) {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateUser">Create Account</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-green" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                                </li>
-                            } else {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Chart" asp-action="EditChart">Clarify Progress</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Chart" asp-action="AddRemove">Create or Delete Goals</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-red" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
-                                </li>
-                                
+                            if (!TempData.ContainsKey("UserId"))
+                            {
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CreateUser">Create Account</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-green" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                                        </li>
+                            }
+                            else
+                            {
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Chart" asp-action="EditChart">Clarify Progress</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Chart" asp-action="AddRemove">Create or Delete Goals</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-warning" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
+                                        </li>
+
                             }
                         }
-                        
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                        </li>
                     </ul>
                 </div>
             </div>

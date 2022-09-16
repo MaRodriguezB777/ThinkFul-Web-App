@@ -5,13 +5,18 @@
 <h1>@ViewData["Title"]</h1>
 
 <style>
-    td {
+    tr {
+        border-top: 1px solid gray;
         border-left: 1px solid gray;
+        border-right: 1px solid gray;
+    }
+
+    td {
         border-right: 1px solid gray;
     }
 </style>
 
-<p>We do not make use of any user data except for the purposes of using the site. <b><i>NONE</i> of your data is sold to third parties or advertisers.</b></p>
+<p>This Application was made by me, Manuel Rodriguez, as a Personal Project using AWS Elastic Beanstalk and Microsoft Azure SQL Server as well as ChartJS. I do not proport to own any of these applications; I am only using them as I understand them to support this project. We do not make use of any user data except for the purposes of using the site. <b><i>NONE</i> of your data is sold to third parties or advertisers.</b></p>
 
 <h2>Here's our Development Logs if you are interested :)</h2>
 <div class="table">
@@ -19,30 +24,93 @@
         <caption>Adds some personality to the site, huh?</caption>
         <tr class="d-table-row">
             <td>August until 8/21:</td>
-            <td>Added in Login functionality, Integrated Chart.js, and supported data with a database. Your ThinkFulChart supported 6 Goals with the ability to change the Goal names from the default and Progress (from 1 to 100)</td>
+            <td>
+                <ul>
+                    <li>
+                        Added in Login functionality, Integrated Chart.js, and supported data with a database. Your ThinkFulChart supported 6 Goals with the ability to change the Goal names from the default and Progress (from 1 to 100)
+                    </li>
+                </ul>
+            </td>
         </tr>
         <tr class="d-table-row">
             <td>August 21:</td>
-            <td>Rebuilt the ThinkFulChart to use lists with the idea of supporting variable numbers of Goals.</td>
-            <td>Success! We have tested it and can display users with up to 12 goals, now we have to fix the Update screen so that it will work with this change.</td>
+            <td>
+                <ul>
+                    <li>
+                        Rebuilt the ThinkFulChart to use lists with the idea of supporting variable numbers of Goals.
+                    </li>
+                    <li>
+                        Success! We have tested it and can display users with up to 12 goals, now we have to fix the Update screen so that it will work with this change.
+                    </li>
+                </ul>
+            </td>
         </tr>
         <tr class="d-table-row">
             <td>August 22:</td>
-            <td>Finished the Update screen! Our next goal will be to actually allow you to add or take out goals, up to a maximum of 12 and a minimum of 1. This may take a while as the server-side database will need to be updated and changed to fit the new dynamic approach.</td>
-            <td>Got a lot of stuff done! Our team was able to implement the ThinkFulCharts using JavaScript Object Notation (JSON) but are still working on being able to use them publicly.</td>
+            <td>
+                <ul>
+                    <li>
+                        Finished the Update screen! Our next goal will be to actually allow you to add or take out goals, up to a maximum of 12 and a minimum of 1. This may take a while as the server-side database will need to be updated and changed to fit the new dynamic approach.
+                    </li>
+                    <li>
+                        Got a lot of stuff done! Our team was able to implement the ThinkFulCharts using JavaScript Object Notation (JSON) but are still working on being able to use them publicly.
+                    </li>
+                </ul>
         </tr>
         <tr class="d-table-row">
             <td>August 31:</td>
-            <td>After some days of inactivity, we returned to work and have managed to get a solid delete button interface which lets the user put in whatever they want for their Goal names (including special characters and spaces) working on the site. What is missing is integrating it with the database. Still figuring out exactly the best organization method.</td>
+            <td>
+                <ul>
+                    <li>
+                        After some days of inactivity, we returned to work and have managed to get a solid delete button interface which lets the user put in whatever they want for their Goal names (including special characters and spaces) working on the site. What is missing is integrating it with the database. Still figuring out exactly the best organization method.
+                    </li>
+                </ul>
+            </td>
         </tr>
         <tr class="d-table-row">
             <td>September 1:</td>
-            <td>We have made even more progress on removing Goals. Right now, they can be removed from the Update page but still need to be make it easier and less error-prone for the users.</td>
+            <td>
+                <ul>
+                    <li>
+                        We have made even more progress on removing Goals. Right now, they can be removed from the Update page but still need to be make it easier and less error-prone for the users.
+                    </li>
+                </ul>
+            </td>
         </tr>
         <tr class="d-table-row">
             <td>September 9:</td>
-            <td>We have adding the functionality for deletion of a goal! Sadly... we are still working on being able to add in new goals. Also, more security measures have been put in place to ensure Users aren't putting any weird characters or data into their ThinkFulCharts.</td>
+            <td>
+                <ul>
+                    <li>
+                        We have adding the functionality for deletion of a goal! Sadly... we are still working on being able to add in new goals. Also, more security measures have been put in place to ensure Users aren't putting any weird characters or data into their ThinkFulCharts.
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr class="d-table-row">
+            <td>September 11:</td>
+            <td>
+                <ul>
+                    <li>
+                        Finally finished (Part 1)! Fixed the add Goals functionality and put the Web App online through AWS Elastic Beanstalk and Azure SQL Server
+                    </li>
+                    <li>
+                        Made it so that an alternate url of ThinkFulChart is tiny.one/thinkful
+                    </li>
+                </ul>
+        </tr>
+        <tr class="d-table-row">
+            <td>September 15:</td>
+            <td>
+                <ul>
+                    <li>
+                        Cleaned up some things and added text better explaining what ThinkFulChart actually is.
+                    </li>
+                    <li>
+                        Cleaned up the Privacy page (Yes this one). You wouldn't like to see how it was before...
+                    </li>
+                </ul>
+            </td>
         </tr>
     </table>
-
 </div>

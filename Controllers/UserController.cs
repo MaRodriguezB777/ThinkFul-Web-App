@@ -28,6 +28,7 @@ namespace ThinkfulApp.Controllers
                 TempData["UserId"] = foundUser.Id;
                 ViewBag.User = foundUser;
                 ViewBag.Chart = ChartDataDAO.GetChartFromId(foundUser.Id);
+                ViewBag.LoggedInSuccess = "You are now Logged In!";
                 return View("Index");
             }
             else
