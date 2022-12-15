@@ -25,7 +25,7 @@
         window.onerror = function (e) {
             alert(e);
         }
-
+        
         const NumGoals = @ViewBag.Chart.GoalList.Count;
 
         const data = {
@@ -39,14 +39,14 @@
                 pointBackgroundColor: 'rgb(255, 160, 100)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(255, 160, 100)'
+                pointHoverBorderColor: 'rgb(255, 160, 100)',
             }]
         };
 
         var LabelList = @Json.Serialize(ViewBag.Chart.LabelList);
         var GoalList = @Json.Serialize(ViewBag.Chart.GoalList);
         for (var i = 0; i < NumGoals; i++) {
-            console.log("i = " + i);
+            //console.log("i = " + i);
             data.labels[i] = LabelList[i];
             data.datasets[0].data[i] = GoalList[i];
         }
@@ -63,17 +63,18 @@
                     r: {
                         suggestedMin: 1,
                         suggestedMax: 100,
-
                         ticks: {
                             display: false,
                             stepSize: 1,
                         },
                         pointLabels: {
+                            color: 'rgb(0, 0, 0)',
                             font: function (context) {
                                 var width = context.chart.width;
-                                var size = Math.round(width / 48);
+                                var size = Math.round(width / 24);
                                 return {
                                     size: size,
+                                    family: 'Century Gothic',
                                 };
                             }
                         }
