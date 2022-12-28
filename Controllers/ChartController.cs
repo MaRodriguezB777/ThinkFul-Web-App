@@ -115,7 +115,7 @@ namespace ThinkfulApp.Controllers
                     chart.LabelList.Add(newGoal.LabelList[0]);
                     chart.GoalList.Add(newGoal.GoalList[0]);
                     chart.NumOfGoals++;
-                    ViewBag.AddSuccessMessage = $"Success! The Goal \"{newGoal.LabelList[0]}\" was added to your ThinkFulChart and with a Progress of {chart.GoalList[0]}, you are on the way to mastery! You may add another Goal if you'd like.";
+                    ViewBag.AddSuccessMessage = $"Success! The Goal \"{newGoal.LabelList[0]}\" was added to your ThinkFulChart and with a Progress of {newGoal.GoalList[0]}, you are on the way to mastery! You may add another Goal if you'd like.";
                 }
                 else
                 {
