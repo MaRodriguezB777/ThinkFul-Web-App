@@ -6,7 +6,6 @@
         .intro-div {
             padding-bottom: 5vh;
         }
-
         .display-6 {
             word-wrap: anywhere;
             font-size: 6vh;
@@ -27,7 +26,7 @@
             @{
                 if (ViewBag.HomeMessage != null)
                 {
-                        <p class="alert-primary">@ViewBag.HomeMessage</p>
+                                        <p class="alert-primary">@ViewBag.HomeMessage</p>
                 }
             }
             <div class="intro">
@@ -82,10 +81,12 @@
                                 },
                                 pointLabels: {
                                     font: function (context) {
+                                        
                                         var width = context.chart.width;
-                                        var size = Math.round(width / 48);
+                                        var size = Math.round(width / 24);
                                         return {
                                             size: size,
+                                            family: 'Century Gothic'
                                         };
                                     }
                                 }
