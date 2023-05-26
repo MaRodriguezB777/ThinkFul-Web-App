@@ -4,8 +4,7 @@
       "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/thinkful-azure-server/databases/ThinkFulDB",
       "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:connectionString",
-      "dynamicId": null
+      "connectionId": "ConnectionStrings:connectionString"
     }
   }
 }
